@@ -5,8 +5,10 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.deenislam.sdk.Deen
+import com.deenislam.sdk.DeenCallback
 
-class DeenActivity : AppCompatActivity() {
+class DeenActivity : AppCompatActivity(),DeenCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,7 +20,7 @@ class DeenActivity : AppCompatActivity() {
         val prayernotifyon:AppCompatButton = findViewById(R.id.prayernotifyon)
         val prayernotifyoff:AppCompatButton = findViewById(R.id.prayernotifyoff)
 
-       /* authBtn.setOnClickListener {
+        authBtn.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
                 Deen.openDeen(this,msisdn.text.toString(),this@DeenActivity)
             }else{
@@ -56,11 +58,11 @@ class DeenActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
-        }*/
+        }
 
     }
 
-   /* override fun onDestroy() {
+    override fun onDestroy() {
         super.onDestroy()
         Deen.destroySDK()
     }
@@ -83,5 +85,5 @@ class DeenActivity : AppCompatActivity() {
 
     override fun prayerNotificationFailed() {
         Toast.makeText(this, "Prayer notification failed Callback", Toast.LENGTH_SHORT).show()
-    }*/
+    }
 }
