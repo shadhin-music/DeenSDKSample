@@ -5,13 +5,19 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import com.deenislam.sdk.Deen
-import com.deenislam.sdk.DeenCallback
+import com.deenislam.sdk.DeenSDKCallback
+import com.deenislam.sdk.DeenSDKCore
 
-class DeenActivity : AppCompatActivity(),DeenCallback {
+class DeenActivity : AppCompatActivity(), DeenSDKCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        DeenSDKCore.initDeen(
+            this,
+            "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBcHBsaWNhdGlvbiI6IkRlZW4gSXNsYW0iLCJuYW1lIjoiaW1yYW5raGFuIiwicm9sZSI6IlNESyIsIm5iZiI6MTY5MjAwNDEwMSwiZXhwIjoxNjkyMDkwNTAxLCJpYXQiOjE2OTIwMDQxMDF9.cMIf17mm82uCw9M2glN9egv5e2Tc7t7zdnRes15YOAFCmVgV8kDRkwIbsJuwdHv8yVOtDBZ_U3S7lYoJNb4dOg",
+            this@DeenActivity
+        )
 
         val msisdn:EditText = findViewById(R.id.phone_number)
         val authBtn:AppCompatButton = findViewById(R.id.login)
@@ -20,9 +26,10 @@ class DeenActivity : AppCompatActivity(),DeenCallback {
         val prayernotifyon:AppCompatButton = findViewById(R.id.prayernotifyon)
         val prayernotifyoff:AppCompatButton = findViewById(R.id.prayernotifyoff)
 
+
         authBtn.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
-                Deen.openDeen(this,msisdn.text.toString(),this@DeenActivity)
+                DeenSDKCore.openDeen()
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
@@ -30,7 +37,7 @@ class DeenActivity : AppCompatActivity(),DeenCallback {
 
         tasbeehBtn.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
-                Deen.openTasbeeh(this,msisdn.text.toString(),this@DeenActivity)
+                DeenSDKCore.openTasbeeh()
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
@@ -38,7 +45,7 @@ class DeenActivity : AppCompatActivity(),DeenCallback {
 
         forbiddenBtn.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
-                Deen.openPrayerTime(this,msisdn.text.toString(),this@DeenActivity)
+                DeenSDKCore.openPrayerTime()
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
@@ -46,7 +53,7 @@ class DeenActivity : AppCompatActivity(),DeenCallback {
 
         prayernotifyon.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
-                Deen.prayerNotification(true,this,msisdn.text.toString(),this@DeenActivity)
+                DeenSDKCore.prayerNotification(true)
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
@@ -54,7 +61,7 @@ class DeenActivity : AppCompatActivity(),DeenCallback {
 
         prayernotifyoff.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
-                Deen.prayerNotification(false,this,msisdn.text.toString(),this@DeenActivity)
+                DeenSDKCore.prayerNotification(false)
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
@@ -64,26 +71,26 @@ class DeenActivity : AppCompatActivity(),DeenCallback {
 
     override fun onDestroy() {
         super.onDestroy()
-        Deen.destroySDK()
+        DeenSDKCore.destroySDK()
     }
 
-    override fun onAuthSuccess() {
+    override fun onDeenSDKInitSuccess() {
         Toast.makeText(this, "Auth Success Callback", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onAuthFailed() {
+    override fun onDeenSDKInitFailed() {
         Toast.makeText(this, "Auth Failed Callback", Toast.LENGTH_SHORT).show()
     }
 
-    override fun prayerNotificationOn() {
+    override fun DeenPrayerNotificationOn() {
         Toast.makeText(this, "Prayer notification enable Callback", Toast.LENGTH_SHORT).show()
     }
 
-    override fun prayerNotificationOff() {
+    override fun DeenPrayerNotificationOff() {
         Toast.makeText(this, "Prayer notification disable Callback", Toast.LENGTH_SHORT).show()
     }
 
-    override fun prayerNotificationFailed() {
+    override fun DeenPrayerNotificationFailed() {
         Toast.makeText(this, "Prayer notification failed Callback", Toast.LENGTH_SHORT).show()
     }
 }
