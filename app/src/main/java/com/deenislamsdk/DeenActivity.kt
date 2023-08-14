@@ -15,7 +15,7 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
 
         DeenSDKCore.initDeen(
             this,
-            "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBcHBsaWNhdGlvbiI6IkRlZW4gSXNsYW0iLCJuYW1lIjoiaW1yYW5raGFuIiwicm9sZSI6IlNESyIsIm5iZiI6MTY5MjAwNDEwMSwiZXhwIjoxNjkyMDkwNTAxLCJpYXQiOjE2OTIwMDQxMDF9.cMIf17mm82uCw9M2glN9egv5e2Tc7t7zdnRes15YOAFCmVgV8kDRkwIbsJuwdHv8yVOtDBZ_U3S7lYoJNb4dOg",
+            "",
             this@DeenActivity
         )
 
