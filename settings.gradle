@@ -15,5 +15,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Deen Islam SDK"
+rootProject.name = "MyBL SDK Sample"
 include ':app'
