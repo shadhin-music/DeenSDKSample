@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.deenislam.sdk.DeenSDKCallback
 import com.deenislam.sdk.DeenSDKCore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class DeenActivity : AppCompatActivity(), DeenSDKCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +23,7 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
         val forbiddenBtn:AppCompatButton = findViewById(R.id.prayertime)
         val prayernotifyon:AppCompatButton = findViewById(R.id.prayernotifyon)
         val prayernotifyoff:AppCompatButton = findViewById(R.id.prayernotifyoff)
+        val checkNotifyBtn:AppCompatButton = findViewById(R.id.checkNotifyBtn)
 
 
         initSDKbtn.setOnClickListener {
@@ -70,6 +74,21 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
         prayernotifyoff.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
                 DeenSDKCore.prayerNotification(false)
+            }else{
+                Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        checkNotifyBtn.setOnClickListener {
+            val baseContext = this
+            if(msisdn.text.isNotEmpty()){
+                CoroutineScope(Dispatchers.Main).launch {
+                    if(DeenSDKCore.isPrayerNotificationEnabled(baseContext))
+                        Toast.makeText(applicationContext,"Notification is enabled", Toast.LENGTH_SHORT).show()
+                    else
+                        Toast.makeText(applicationContext,"Notification is disabled", Toast.LENGTH_SHORT).show()
+
+                }
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
