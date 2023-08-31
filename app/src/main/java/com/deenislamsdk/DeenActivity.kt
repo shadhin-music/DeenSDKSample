@@ -16,6 +16,7 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val msisdn:EditText = findViewById(R.id.phone_number)
         val authBtn:AppCompatButton = findViewById(R.id.login)
         val initSDKbtn:AppCompatButton = findViewById(R.id.initSDKbtn)
@@ -49,7 +50,7 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
 
         tasbeehBtn.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
-                DeenSDKCore.openTasbeeh()
+                DeenSDKCore.openFromRC("tasbeeh")
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
@@ -57,7 +58,7 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
 
         forbiddenBtn.setOnClickListener {
             if(msisdn.text.isNotEmpty()){
-                DeenSDKCore.openPrayerTime()
+                DeenSDKCore.openFromRC("prayer_time")
             }else{
                 Toast.makeText(this,"Enter number", Toast.LENGTH_SHORT).show()
             }
@@ -94,6 +95,7 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
             }
         }
 
+
     }
 
     override fun onDestroy() {
@@ -107,6 +109,10 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
 
     override fun onDeenSDKInitFailed() {
         Toast.makeText(this, "Auth Failed Callback", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDeenSDKRCFailed() {
+        Toast.makeText(this, "RC code failed", Toast.LENGTH_SHORT).show()
     }
 
     override fun DeenPrayerNotificationOn() {
