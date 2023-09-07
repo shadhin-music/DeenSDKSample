@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/deen_purple_200"
+    android:background="@color/purple_200"
     android:fillViewport="true"
     android:orientation="vertical">
 
@@ -21,9 +21,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/deen_white"
+            android:background="@color/white"
             android:text="Check Prayer Notification Status"
-            android:textColor="@color/deen_black" />
+            android:textColor="@color/black" />
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -36,9 +36,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/deen_white"
+            android:background="@color/white"
             android:text="Prayer notification enable"
-            android:textColor="@color/deen_black" />
+            android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/prayernotifyoff"
@@ -50,9 +50,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/deen_white"
+            android:background="@color/white"
             android:text="Prayer notification disabled"
-            android:textColor="@color/deen_black" />
+            android:textColor="@color/black" />
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -65,9 +65,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/deen_white"
+            android:background="@color/white"
             android:text="Forbidden Time"
-            android:textColor="@color/deen_black" />
+            android:textColor="@color/black" />
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -80,9 +80,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/deen_white"
+            android:background="@color/white"
             android:text="Tasbeeh"
-            android:textColor="@color/deen_black" />
+            android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
@@ -94,9 +94,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/deen_white"
+            android:background="@color/white"
             android:text="Home"
-            android:textColor="@color/deen_black" />
+            android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/initSDKbtn"
@@ -108,9 +108,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/deen_white"
+            android:background="@color/white"
             android:text="Init SDK"
-            android:textColor="@color/deen_black" />
+            android:textColor="@color/black" />
 
 
         <EditText
@@ -121,12 +121,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@color/deen_white"
+            android:background="@color/white"
             android:hint="Phone number"
             android:inputType="text"
             android:text="8801942247803"
             android:textAlignment="center"
-            android:textColor="@color/deen_black" />
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 
