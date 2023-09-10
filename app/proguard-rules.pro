@@ -36,26 +36,5 @@
 -keepattributes SourceFile,LineNumberTable
 -keepattributes Exceptions,InnerClasses,Signature
 
-# Room classes and annotations
--keep class androidx.room.** { *; }
--keep class androidx.arch.core.** { *; }
--keep @androidx.room.Entity class *
--keep @androidx.room.Dao class *
-
-# Preserve entities' fields
--keepclassmembers @androidx.room.Entity class * {
-    <fields>;
-}
-
-# Preserve DAOs' methods
--keepclassmembers @androidx.room.Dao class * {
-    <methods>;
-}
-
-# Prevent obfuscation of column names
--keepclassmembers @androidx.room.* class * {
-   @androidx.room.* <fields>;
-}
-
 
 

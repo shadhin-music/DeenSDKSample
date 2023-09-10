@@ -1,5 +1,6 @@
 package com.deenislamsdk
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
@@ -104,6 +105,16 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
         val mutableMap: MutableMap<String, Boolean> = MyMapClass.getMap()
     }
 
+    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean,
+                                               newConfig: Configuration
+    ) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+        if (isInPictureInPictureMode) {
+            // Hide the full-screen UI (controls, etc.) while in PiP mode.
+        } else {
+            // Restore the full-screen UI.
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()
