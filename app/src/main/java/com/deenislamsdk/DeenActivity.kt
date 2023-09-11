@@ -96,14 +96,8 @@ class DeenActivity : AppCompatActivity(), DeenSDKCallback {
             }
         }
 
-        testCrash()
-
-
     }
 
-    fun testCrash() {
-        val mutableMap: MutableMap<String, Boolean> = MyMapClass.getMap()
-    }
 
     override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean,
                                                newConfig: Configuration
